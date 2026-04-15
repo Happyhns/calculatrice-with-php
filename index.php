@@ -7,8 +7,6 @@
 </head>
 <body>
 
-<h1>Calculatrice</h1>
-
 <div class="calculator">
     
     <!-- Écran -->
@@ -37,14 +35,7 @@
             <button type="submit" name="btn" value="=">=</button>
             <button type="submit" name="btn" value="+">+</button>
 
-
-
-
-
-
-
-
-
+        </div>
     </form>
 </div>
 

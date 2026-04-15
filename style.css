@@ -1,0 +1,54 @@
+/*Corps de la page*/
+
+body{
+    display: flex; /* Transforme le body en conteneur flexible (Flexbox) */
+    justify-content: center; /*centre horizontalement les éléments*/
+    align-items: center; /*centre verticalement les éléments*/
+    height: 100vh; /*hauteur de body = 100% de la hauteur de la fenêtre */
+    background-color: #9e9090;  /* Couleur de fond du body (un rose rougeâtre) */
+}
+
+/*Conteneur calculatrice*/
+
+.calculator {
+    background: #2c2c3e;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+/* Écran */
+
+.display {
+    width: 90%;
+    height: 60px;
+    margin-bottom: 15px;
+    text-align: right;
+    font-size: 24px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background: #000;
+    color: #0f0;
+}
+
+/* Grille des boutons */
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 70px);
+    gap: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
