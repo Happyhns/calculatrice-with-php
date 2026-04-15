@@ -39,6 +39,41 @@ body{
     gap: 10px;
 }
 
+/* Boutons */
+button {
+    height: 60px;
+    font-size: 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #444;
+    color: white;
+    transition: 0.2s;
+}
+
+/* Effet hover */
+button:hover {
+    background: #666;
+    transform: scale(1.05);
+}
+
+/* Boutons opérateurs */
+button[value="+"],
+button[value="-"],
+button[value="*"],
+button[value="/"] {
+    background: orange;
+}
+
+/* Bouton égal */
+button[value="="] {
+    background: green;
+}
+
+/* Bouton C */
+button[value="C"] {
+    background: red;
+}
 
 
 
