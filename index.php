@@ -1,4 +1,15 @@
 <!DOCTYPE html>
+
+<?php
+
+session_start();
+
+// Initialiser l'affichage
+if (!isset($_SESSION['display'])) { // Si la variable de session 'display' n'existe pas, on l'initialise à une chaîne vide
+    $_SESSION['display'] = '';
+}
+$display = $_SESSION['display'];
+?>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
