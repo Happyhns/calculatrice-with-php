@@ -11,7 +11,8 @@
     
     <!-- Écran -->
     <form method="POST"> <!-- Formulaire pour envoyer les données à PHP -->
-        <input type="text" name="display" class="display" readonly> <!-- Champ de saisie pour afficher les résultats, en lecture seule -->
+        <input type="text" name="display" class="display"
+        value="<?php echo $display ?? ''; ?>" readonly> <!-- Affiche le résultat ou les entrées, en lecture seule -->
 
         <!-- Boutons -->
         <div class="buttons">
