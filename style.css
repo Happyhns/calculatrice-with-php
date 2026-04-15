@@ -1,0 +1,7 @@
+body{
+    display: flex; /* Transforme le body en conteneur flexible (Flexbox) */
+    justify-content: center; /*centre horizontalement les éléments*/
+    align-items: center; /*centre verticalement les éléments*/
+    height: 100vh; /*hauteur de body = 100% de la hauteur de la fenêtre */
+    background-color: #cb7a7a;  /* Couleur de fond du body (un rose rougeâtre) */
+}
