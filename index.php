@@ -5,10 +5,83 @@
 session_start();
 
 // Initialiser l'affichage
-if (!isset($_SESSION['display'])) { // Si la variable de session 'display' n'existe pas, on l'initialise à une chaîne vide
+if (!isset($_SESSION['display'])) {
     $_SESSION['display'] = '';
 }
+
 $display = $_SESSION['display'];
+
+// Fonction pour ajouter un chiffre
+function ajouterChiffre($display, $val) {
+    return $display . $val;
+}
+
+// Fonction pour effacer
+function effacer() {
+    return '';
+}
+
+// Fonction pour calculer
+function calculer($expression) {
+
+    // Séparer les nombres et opérateurs
+    preg_match('/(\d+)([\+\-\*\/])(\d+)/', $expression, $matches);
+
+    if (!$matches) return "Erreur";
+
+    $a = $matches[1];
+    $op = $matches[2];
+    $b = $matches[3];
+
+    switch ($op) {
+        case '+': return addition($a, $b);
+        case '-': return soustraction($a, $b);
+        case '*': return multiplication($a, $b);
+        case '/': return division($a, $b);
+        default: return "Erreur";
+    }
+}
+
+// Fonctions opérations (OBLIGATOIRE dans ton devoir)
+function addition($a, $b) {
+    return $a + $b;
+}
+
+function soustraction($a, $b) {
+    return $a - $b;
+}
+
+function multiplication($a, $b) {
+    return $a * $b;
+}
+
+function division($a, $b) {
+    if ($b == 0) {
+        return "Erreur";
+    }
+    return $a / $b;
+}
+
+// Gestion des boutons
+if (isset($_POST['btn'])) {
+
+    $btn = $_POST['btn'];
+
+    if ($btn == 'C') {
+        $display = effacer();
+    }
+    elseif ($btn == '=') {
+        $display = calculer($display);
+    }
+    else {
+        $display = ajouterChiffre($display, $btn);
+    }
+
+    $_SESSION['display'] = $display;
+}
+
+?>
+
 ?>
 <html lang="fr">
 <head>
