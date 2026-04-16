@@ -6,13 +6,13 @@ session_start();
 
 // Initialiser l'affichage
 if (!isset($_SESSION['display'])) {
-    $_SESSION['display'] = '';
+    $_SESSION['display'] = ''; 
 }
-
+// Récupérer l'affichage actuel
 $display = $_SESSION['display'];
 
 // Fonction pour ajouter un chiffre
-function ajouterChiffre($display, $val) {
+function ajouterChiffre($display, $val) { // Ajoute le chiffre ou l'opérateur au display
     return $display . $val;
 }
 
@@ -27,17 +27,17 @@ function calculer($expression) {
     // Séparer les nombres et opérateurs
     preg_match('/(\d+)([\+\-\*\/])(\d+)/', $expression, $matches);
 
-    if (!$matches) return "Erreur";
+    if (!$matches) return "Erreur"; // Si l'expression n'est pas valide
 
-    $a = $matches[1];
-    $op = $matches[2];
+    $a = $matches[1]; // $matches[0] est l'expression complète, $matches[1] est le premier nombre, $matches[2] est l'opérateur, et $matches[3] est le second nombre
+    $op = $matches[2]; // $matches[2] est l'opérateur
     $b = $matches[3];
 
     switch ($op) {
-        case '+': return addition($a, $b);
-        case '-': return soustraction($a, $b);
-        case '*': return multiplication($a, $b);
-        case '/': return division($a, $b);
+        case '+': return addition($a, $b); // Appelle la fonction addition si l'opérateur est '+'
+        case '-': return soustraction($a, $b); // Appelle la fonction soustraction si l'opérateur est '-'
+        case '*': return multiplication($a, $b); // Appelle la fonction multiplication si l'opérateur est '*'
+        case '/': return division($a, $b); // Appelle la fonction division si l'opérateur est '/'
         default: return "Erreur";
     }
 }
@@ -82,7 +82,6 @@ if (isset($_POST['btn'])) {
 
 ?>
 
-?>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -94,7 +93,7 @@ if (isset($_POST['btn'])) {
 <div class="calculator">
     
     <!-- Écran -->
-    <form method="POST"> <!-- Formulaire pour envoyer les données à PHP -->
+    <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"> <!-- Formulaire pour envoyer les données à PHP -->
         <input type="text" name="display" class="display"
         value="<?php echo $display ?? ''; ?>" readonly> <!-- Affiche le résultat ou les entrées, en lecture seule -->
 
